@@ -10,7 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.labelText,
     this.validator,
-    this.controller,
+    this.controller, this.onChanged,
   }) : super(key: key);
   final Widget? suffixIcon;
   final Widget? prefixIcon;
@@ -19,12 +19,14 @@ class CustomTextFormField extends StatelessWidget {
   final String? labelText;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
       controller:controller,
+      onChanged:onChanged,
       style: const TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w400,

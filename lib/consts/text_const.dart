@@ -7,4 +7,6 @@ class AppTextConst {
   static const String total = "Total";
   static const String canteen = "Canteen";
   static const String placeOrder = "Place Order";
+  //Api url
+  static const String apiUrl = 'https://api.denzo.io/api/cus/v1/login';
 }

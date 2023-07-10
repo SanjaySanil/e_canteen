@@ -21,9 +21,10 @@ class LoginScreen extends StatelessWidget {
                   image: AssetImage(
                     AppImageConst.loginBottom,
                   ),
-                  alignment: Alignment.bottomCenter),
+                  alignment: Alignment.bottomCenter
+              ),
             ),
-            child: const Column(
+            child:  Column(
               children: [
                 LoginHeader(),
                 LoginForm(),

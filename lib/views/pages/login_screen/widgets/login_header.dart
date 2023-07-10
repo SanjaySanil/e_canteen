@@ -20,7 +20,7 @@ class LoginHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 32.0),
-        Text(
+        Text( 
           AppTextConst.welcome,
           style: Theme.of(context).textTheme.titleLarge,
         ),

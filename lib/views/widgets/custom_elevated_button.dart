@@ -29,7 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
           shape: shape,
         ),
         onPressed: onPressed,
-        child:child,
+        child: child,
       ),
     );
   }

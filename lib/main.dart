@@ -1,3 +1,4 @@
+import 'package:e_canteen/app_routes/app_routes.dart';
 import 'package:e_canteen/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,8 @@ class MyApp extends StatelessWidget {
       theme:AppTheme.lightTheme,
       darkTheme:AppTheme.darkTheme,
       themeMode:ThemeMode.light,
+      initialRoute:AppRoutes.loginScreen,
+      getPages:AppRoutes.routes,
     );
   }
 }

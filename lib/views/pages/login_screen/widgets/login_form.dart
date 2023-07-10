@@ -1,9 +1,11 @@
+import 'package:e_canteen/app_routes/app_routes.dart';
 import 'package:e_canteen/consts/color_const.dart';
 import 'package:e_canteen/consts/size_const.dart';
 import 'package:e_canteen/consts/text_const.dart';
 import 'package:e_canteen/views/widgets/custom_elevated_button.dart';
 import 'package:e_canteen/views/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -52,7 +54,9 @@ class LoginForm extends StatelessWidget {
             ),
             const SizedBox(height: 43.0),
             CustomElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppRoutes.productsScreen);
+              },
               width: 187.0,
               height: 48.0,
               backgroundColor: AppColors.tealGreen,

@@ -6,4 +6,5 @@ class AppTextConst {
   static const String login = "Login";
   static const String total = "Total";
   static const String canteen = "Canteen";
+  static const String placeOrder = "Place Order";
 }

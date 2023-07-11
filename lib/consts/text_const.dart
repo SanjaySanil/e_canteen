@@ -10,4 +10,6 @@ class AppTextConst {
   //Api urls
   static const String apiUrl = 'https://api.denzo.io/api/cus/v1/login';
   static const String productApiUrl = 'https://api.denzo.io/api/cus/v1';
+  static const String cartApiUrl =
+      'https://api.denzo.io/api/cus/v1/add-to-cart';
 }

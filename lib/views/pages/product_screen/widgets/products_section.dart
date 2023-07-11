@@ -1,4 +1,5 @@
 import 'package:e_canteen/consts/color_const.dart';
+import 'package:e_canteen/controller/cart_controller/cart_controller.dart';
 import 'package:e_canteen/controller/products_controller/products_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,8 @@ import 'package:get/get.dart';
 class ProductsSection extends StatelessWidget {
   ProductsSection({Key? key}) : super(key: key);
   final ProductController productController = Get.put(ProductController());
+  final CartController cartController = Get.put(CartController());
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,7 +22,9 @@ class ProductsSection extends StatelessWidget {
           itemBuilder: (context, index) {
             final product = productController.products?.products.data ?? [];
             return ProductsCard(
-              image: product[index].coverImage ??
+              quantity: index == 0 ? 4 : 0,
+              itemId: product[index].id,
+              image:
                   "https://ak.picdn.net/shutterstock/videos/1054933562/thumb/7.jpg",
               price: product[index].price.toString(),
               name: product[index].name,
@@ -39,13 +44,19 @@ class ProductsCard extends StatelessWidget {
     required this.name,
     required this.image,
     required this.price,
+    required this.itemId,
+    required this.quantity,
   }) : super(key: key);
   final String name;
   final String image;
   final String price;
+  final int itemId;
+  final int quantity;
 
   @override
   Widget build(BuildContext context) {
+    final CartController cartController = Get.put(CartController());
+
     final style = Theme.of(context).textTheme.titleSmall;
     return Container(
       margin: const EdgeInsets.only(bottom: 24.0),
@@ -60,7 +71,7 @@ class ProductsCard extends StatelessWidget {
                 Container(
                   width: 82.0,
                   height: 80.0,
-                  color: Colors.red,
+                  color: Colors.white,
                   child: Image.network(
                     image,
                     fit: BoxFit.fill,
@@ -82,7 +93,7 @@ class ProductsCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        price,
+                        " ₹$price",
                         style: style,
                       ),
                     ],
@@ -107,10 +118,12 @@ class ProductsCard extends StatelessWidget {
                   border: Border.all(color: AppColors.tealGreen, width: 1),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: const Text(""),
+                child: Center(child: Text(quantity.toString())),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  cartController.addToCart(itemId, quantity);
+                },
                 child: const Icon(
                   Icons.add,
                   size: 16.0,

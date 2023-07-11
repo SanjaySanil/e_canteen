@@ -19,7 +19,7 @@ class ProductsScreen extends StatelessWidget {
             if (productController.isLoading.value) {
               return const Center(
                 child: CircularProgressIndicator(
-                  color:AppColors.tealGreen,
+                  color: AppColors.tealGreen,
                 ),
               );
             } else if (productController.products == null) {
@@ -31,7 +31,7 @@ class ProductsScreen extends StatelessWidget {
                 children: [
                   const ProductsHeader(),
                   ProductsSection(),
-                  const PlaceOrderSection(),
+                  PlaceOrderSection(),
                 ],
               );
             }
